@@ -31,13 +31,24 @@ section.hero{border-top:0;padding:56px 0 40px}
 section.navy{background:var(--ink);color:var(--paper)}
 section.navy h2,section.navy h3,section.navy p,section.navy li{color:var(--paper)}
 section.navy .note,section.navy .mono{color:#C8D2DE}
-section.navy h2 em{color:var(--acc2)}
+section.navy h2 em{color:var(--acc2);white-space:nowrap}
 .sechead{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:28px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
 section.navy .sechead{border-color:rgba(247,244,238,.4)}
 .sechead .run{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:16px;color:var(--mute);text-align:right}
 .pts{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
 .pt{display:flex;gap:18px;padding:20px 0;border-top:1px dotted var(--dot)}
 .pt .n{font-family:Newsreader,Georgia,serif;font-size:28px;color:var(--acc);min-width:36px;line-height:1}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px;border-top:1px solid var(--ink)}
+.step{padding:22px 0 10px;border-right:1px dotted var(--dot);padding-right:24px}
+.step:last-child{border-right:0;padding-right:0}
+.step .v{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:32px;color:var(--acc);line-height:1;margin:0 0 10px}
+.step h3{font-size:21px}
+.step p{font-size:16.5px;line-height:1.45}
+.steps.three{grid-template-columns:repeat(3,1fr)}
+.step .w{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:6px;line-height:1.6}
+.guia{display:grid;grid-template-columns:440px 1fr;gap:40px;align-items:start}
+.cropg{width:100%;aspect-ratio:430/562;overflow:hidden;border:1px solid var(--line);background:#fff}
+.cropg img{display:block;width:334.88%;height:auto;margin-left:-117.44%;margin-top:-32.09%}
 .shot{margin:36px 0 0}
 .shot figure{margin:0}
 .crop{width:100%;aspect-ratio:1440/900;overflow:hidden;border:1px solid var(--line);background:#fff}
@@ -51,13 +62,20 @@ figcaption p{font-size:17px;margin:0}
 .gloss div{padding:14px 0;border-top:1px dotted var(--dot)}
 .gloss dt{font-family:Newsreader,Georgia,serif;font-size:20px;color:var(--ink);margin:0 0 4px}
 .gloss dd{margin:0;font-size:16px;line-height:1.5;font-family:Newsreader,Georgia,serif}
+.dec{border-top:1px solid var(--ink)}
+.dec > div{display:grid;grid-template-columns:36px 1fr 150px;gap:16px;padding:16px 0;border-bottom:1px dotted var(--dot);align-items:start}
+.dec .n{font-family:Newsreader,Georgia,serif;font-size:26px;color:var(--acc);line-height:1}
+.dec h3{font-size:21px;margin-bottom:4px}
+.dec p{font-size:16.5px;margin:0}
+.dec .st{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);padding-top:6px;text-align:right}
 .tl{border-top:1px solid var(--ink)}
 .tl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1px dotted var(--dot)}
 .tl .mono{color:var(--acc);font-size:13px;padding-top:6px}
 footer{background:var(--ink);color:#C8D2DE;padding:40px 0 48px;font-size:14px;line-height:1.6}
 footer b{color:#fff}
 footer .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
-@media (max-width:760px){.pts,.gloss,footer .wrap{grid-template-columns:1fr}.sechead{flex-direction:column;align-items:flex-start}.sechead .run{text-align:left}header .wrap{height:56px}.logo{font-size:22px}}
+@media (max-width:900px){.steps,.steps.three{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0;padding-right:0}.guia{grid-template-columns:1fr}.cropg{max-width:440px}}
+@media (max-width:760px){.pts,.gloss,footer .wrap,.steps,.steps.three{grid-template-columns:1fr}.step{border-right:0;padding-right:0}.dec > div{grid-template-columns:36px 1fr}.dec .st{grid-column:2;text-align:left;padding-top:0}.sechead{flex-direction:column;align-items:flex-start}.sechead .run{text-align:left}header .wrap{height:56px}.logo{font-size:22px}}
 </style>
 </head>
 <body>
@@ -65,55 +83,116 @@ footer .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
 
 <section class="hero"><div class="wrap">
   <p class="kick">PATEO em 5 minutos</p>
-  <h1>Ensinar adolescentes a <em>desconfiar</em> da IA, dentro da escola pública.</h1>
-  <p class="lead" style="margin-top:22px">Esta página mostra o começo do trabalho: o que é o projeto, o que já está feito, o que falta, e as primeiras telas. Nada aqui está pronto para venda. É para você entender a ideia e ver que ela já saiu do papel.</p>
-  <p class="note">Concepção: Cauêh Vidal. Material de trabalho, não é site público. Nome e símbolo provisórios.</p>
+  <h1>Dar ao <em>professor</em> formação e ferramentas para levar a IA à sala de aula.</h1>
+  <p class="lead" style="margin-top:22px">O PATEO é um ecossistema educacional de inteligência artificial para professores e alunos da escola pública. Começamos preparando e equipando o professor para, por meio dele, levar a aprendizagem ao aluno. As diretrizes de 2026 do Conselho Nacional de Educação apontam para a escola tratar de IA com o professor mediando, e quem faz isso acontecer, aula por aula, é o professor, que não recebeu formação, recurso nem apoio para isso. Esta página mostra o começo do trabalho: o que é, o que já está feito, o que é protótipo e o que ainda depende de decisão. Nada aqui está pronto para venda.</p>
+  <p class="note">Concepção: Cauêh Vidal. Material de trabalho, não é site público. Nome e símbolo provisórios. Segunda versão desta página: professor primeiro, aluno junto desde o início.</p>
 </div></section>
 
 <section><div class="wrap">
   <div class="sechead"><h2>A ideia em seis pontos</h2><span class="run">leia na ordem</span></div>
   <div class="pts">
-    <div class="pt"><span class="n">1</span><div><h3>O problema</h3><p>Alunos de 13 e 14 anos já usam ChatGPT e similares todo dia, para lição, pesquisa, redação. Eles não sabem que a IA erra com confiança, nem como checar. Em 2026 o Conselho Nacional de Educação passou a exigir que a escola ensine isso, com uma regra clara: IA generativa nos Anos Finais só com o professor mediando. O professor, por sua vez, não recebeu formação nenhuma.</p></div></div>
-    <div class="pt"><span class="n">2</span><div><h3>O que é o PATEO</h3><p>Um material didático de letramento em IA para 8º e 9º ano. A primeira entrega é uma unidade de seis aulas de 50 minutos: um capítulo impresso para o aluno, um guia que forma o professor enquanto ele prepara a aula, e um vídeo curto para o professor. Funciona sem internet, sem aplicativo, sem celular de aluno. O lema é "menos plataforma, mais sala de aula".</p></div></div>
-    <div class="pt"><span class="n">3</span><div><h3>O que já está feito</h3><p>Um documento mestre do produto com 66 requisitos e 18 decisões tomadas. Um dossiê de mercado e de regulação (leis, pareceres, concorrentes). O método pedagógico definido em seis momentos por aula. A identidade visual, o site desenhado em desktop e celular, um sistema de design, e um protótipo navegável da plataforma. Conversa aberta com uma parceira comercial que já vende para prefeituras.</p></div></div>
-    <div class="pt"><span class="n">4</span><div><h3>Para quem e como se vende</h3><p>Redes municipais de ensino, que são quem compra material para escola pública. Material impresso com formação do professor entra por um caminho de compra mais simples que software, e não guarda nenhum dado de criança. O primeiro passo é um piloto sem custo para a rede, com três a seis professores, no primeiro semestre de 2027, para provar que funciona antes de vender.</p></div></div>
-    <div class="pt"><span class="n">5</span><div><h3>E a plataforma?</h3><p>Já existe como protótipo navegável, e você vê as telas mais abaixo: o dia do professor organizado, o QR do livro impresso que abre vídeo e atividade, o modo aula no projetor, resultados por grupo e o painel da Secretaria. Ela entra na fase 2, depois do piloto, quando a escola tiver dito o que realmente precisa. Sem dado individual de aluno, sem ranking.</p></div></div>
-    <div class="pt"><span class="n">6</span><div><h3>Próximos 30 dias</h3><p>Formalizar a parceria comercial, abrir a empresa com advogado e contador, trazer um responsável pedagógico (professor ou pedagogo que assina o conteúdo) e fechar a primeira rede para o piloto. O que ainda não existe: nenhuma rede assinou, nada foi vendido, o nome ainda vai passar por busca de marca.</p></div></div>
+    <div class="pt"><span class="n">1</span><div><h3>O problema começa no professor</h3><p>Os alunos já usam ChatGPT e similares todo dia e não sabem checar quando a IA erra. Em 2026 o Conselho Nacional de Educação aprovou diretrizes para IA na educação, com uma regra proposta: IA generativa nos Anos Finais só com o professor mediando. A homologação final ainda está por confirmar, mas a direção é clara: a tarefa cai no professor. E ninguém o formou para isso, não há material pronto para usar e a escola muitas vezes não tem internet. Sem resolver isso, nada chega ao aluno.</p></div></div>
+    <div class="pt"><span class="n">2</span><div><h3>O que é o PATEO</h3><p>Duas experiências ligadas dentro de um só produto. Para o professor: formação prática em IA, guia, microvideoaulas, planos de aula minuto a minuto e acompanhamento. Para o aluno: livro, atividades e letramento em IA com pensamento crítico, sempre orientado pelo professor. Tudo em torno de uma unidade de seis aulas sobre IA para 8º e 9º ano, que funciona sem internet, sem aplicativo, sem celular de aluno. O lema é "menos plataforma, mais sala de aula".</p></div></div>
+    <div class="pt"><span class="n">3</span><div><h3>O que já está feito</h3><p>Um documento mestre do produto com 66 requisitos e 18 decisões tomadas. Um dossiê de mercado e de regulação. O método pedagógico em seis momentos por aula. A identidade visual, o site desenhado, um sistema de design e um protótipo navegável da plataforma, com o espaço do professor e o painel da Secretaria. A página dupla do livro do aluno e a página do guia, desenhadas. Conversa aberta com uma parceira comercial que já vende para prefeituras. O documento mestre ainda precisa registrar a ordem de desenvolvimento: professor primeiro.</p></div></div>
+    <div class="pt"><span class="n">4</span><div><h3>Quem usa, quem compra</h3><p>Usam o professor e o aluno: o professor com o guia, os vídeos e os planos; o aluno com o livro e as atividades, em sala, com o professor mediando. Quem compra é a Secretaria Municipal de Educação, que contrata formação e material para a rede e acompanha o programa. Formação com material impresso entra por um caminho de compra mais simples que software, e não guarda nenhum dado de criança. O primeiro passo é um piloto sem custo para a rede, com três a seis professores e suas turmas, no primeiro semestre de 2027.</p></div></div>
+    <div class="pt"><span class="n">5</span><div><h3>E a plataforma?</h3><p>É o espaço de trabalho do professor e o painel da Secretaria; o aluno participa pela sala de aula e pelo material impresso, não por conta própria na tela. Existe hoje como protótipo navegável, com dados inventados, e você vê as telas mais abaixo: o dia do professor organizado, o plano de aula com a formação embutida, o modo aula no projetor, os resultados por grupo e o painel da Secretaria. Entra na fase 2, depois do piloto, quando os professores tiverem dito o que realmente precisam. Sem dado individual de aluno, sem ranking.</p></div></div>
+    <div class="pt"><span class="n">6</span><div><h3>Próximos 30 dias</h3><p>Registrar no documento mestre a ordem de desenvolvimento (professor primeiro, aluno em seguida), formalizar a parceria comercial, abrir a empresa com advogado e contador, trazer um responsável pedagógico que assine o conteúdo e fechar a primeira rede para o piloto. O que ainda não existe: nenhuma rede assinou, nada foi vendido, o nome ainda vai passar por busca de marca.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="sechead"><h2>O site</h2><span class="run">desenhado em outubro e novembro · ainda não está no ar</span></div>
-  <p class="lead">O site é a porta de entrada para secretarias e professores. Ele foi desenhado para parecer o sumário de um livro didático sério, não um aplicativo. Três telas:</p>
-  <div class="shot"><figure><div class="crop"><img src="img/site.png" alt="Abertura do site: a pergunta Como saber se uma IA está dizendo a verdade, com o índice da unidade" loading="lazy"></div><figcaption><b>Abertura</b><p>A pergunta que abre a unidade, e logo abaixo o índice das seis aulas, do guia, do vídeo e da regra, como num sumário de livro. Quem chega já entende o que vai receber.</p></figcaption></figure></div>
-  <div class="shot"><figure><div class="crop"><img src="img/site.png" alt="A página 90 e 91 do livro do aluno, com o texto do capítulo e o desafio" loading="lazy" style="margin-top:-62.5%"></div><figcaption><b>A página do livro</b><p>Uma página dupla real do capítulo: o texto que o aluno lê, o glossário na margem, o desafio em grupos com três afirmações para investigar. Mostra que o produto é material de verdade, com texto escrito, não uma promessa.</p></figcaption></figure></div>
-  <div class="shot"><figure><div class="crop"><img src="img/site.png" alt="Seção do método: Desconfiar, Comparar, Concluir, sobre fundo azul-marinho" loading="lazy" style="margin-top:-117%"></div><figcaption><b>O método</b><p>Três verbos que o aluno aprende a aplicar em qualquer resposta de IA: desconfiar (de onde veio?), comparar (o que diz uma fonte confiável?) e concluir (certo, errado ou não dá para confirmar). Cada aula tem seis momentos, incluindo um em que o aluno decide se usa ou não IA naquela tarefa.</p></figcaption></figure></div>
+  <div class="sechead"><h2>Dois públicos, <em>um</em> ecossistema</h2><span class="run">professor primeiro é ordem de construção, não corte de escopo</span></div>
+  <p class="lead">O PATEO sempre teve professor e aluno dentro da mesma visão. A decisão é de sequência: desenvolvemos e implementamos primeiro a experiência do professor, porque é ele quem leva o método para a sala. A experiência do aluno é parte integral do produto e entra ligada à dele, não como opcional.</p>
+  <div class="steps three" style="margin-top:28px">
+    <div class="step"><p class="v">01. Professor</p><h3>Prioridade inicial</h3><p>Formação em IA, guia do professor, microvideoaulas, planejamento e recursos pedagógicos, apoio à aplicação em sala e acompanhamento do que aconteceu.</p><p class="w">primeiro a ser desenvolvido e implementado</p></div>
+    <div class="step"><p class="v">02. Aluno</p><h3>Parte integral</h3><p>Livro do aluno, atividades e conteúdos de aprendizagem, letramento em IA e pensamento crítico, tudo orientado pelo professor em sala. Já começou: a página dupla do livro com o texto da primeira aula, o e-book e a visão do aluno no protótipo existem. O que vem depois é a implementação com as turmas.</p><p class="w">já iniciado · implementação depois da do professor</p></div>
+    <div class="step"><p class="v">03. Escola</p><h3>Quem compra e acompanha</h3><p>A Secretaria contrata o programa para a rede, implementa com as escolas e acompanha pelo painel: formação feita, aulas dadas, onde falta internet.</p><p class="w">comprador institucional</p></div>
+  </div>
+  <div class="sechead" style="margin-top:56px"><h2>O que está pronto, o que é protótipo, o que é plano</h2><span class="run">para não confundir</span></div>
+  <div class="steps three">
+    <div class="step"><p class="v">Pronto</p><p>Documento mestre do produto. Dossiê de mercado e regulação. Método pedagógico em seis momentos. Identidade visual e sistema de design. Site, página do guia e página dupla do livro do aluno desenhados, com o texto da primeira aula. E-book do aluno em mockup.</p><p class="w">existe e está no arquivo</p></div>
+    <div class="step"><p class="v">Protótipo</p><p>A plataforma inteira: espaço do professor, modo aula, resultados, QR, visão do aluno, painel da Secretaria. Abre no navegador e dá para clicar, com dados inventados. Nenhuma função está construída de verdade.</p><p class="w">demonstração · dados fictícios</p></div>
+    <div class="step"><p class="v">Plano</p><p>O conteúdo completo escrito do guia, dos planos e do livro (hoje só a primeira aula está rascunhada). As microvideoaulas gravadas. O responsável pedagógico. A parceria formalizada. A primeira rede. O piloto.</p><p class="w">ainda não existe</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sechead"><h2>A jornada do professor</h2><span class="run">quatro passos, uma aula de cada vez</span></div>
+  <p class="lead">O PATEO acompanha o professor no ciclo inteiro de uma aula, e é nesse ciclo que o aluno entra. Cada passo já tem uma peça correspondente no material ou no protótipo. Os nomes dos quatro passos são desta apresentação; não estão no documento mestre.</p>
+  <div class="steps" style="margin-top:28px">
+    <div class="step"><p class="v">1. Aprender</p><h3>Entenda antes de ensinar</h3><p>Cada aula do guia abre explicando o conceito ao professor, em linguagem direta. Uma microvideoaula de cerca de 5 minutos, assistida antes da aula, cobre o que é mais difícil de mediar.</p><p class="w">guia do professor · microvideoaula</p></div>
+    <div class="step"><p class="v">2. Preparar</p><h3>Plano minuto a minuto</h3><p>O que fazer aos 0, 10, 20 e 45 minutos. O que imprimir. O que fazer se a internet cair ou se a turma travar. O professor prepara em minutos, não em horas.</p><p class="w">plano de aula · pacote sem internet</p></div>
+    <div class="step"><p class="v">3. Aplicar</p><h3>A aula, com o professor mediando</h3><p>É aqui que o aluno entra: lê o capítulo, investiga em grupo as três afirmações do desafio e decide, com o professor, se usa ou não IA na tarefa. Se houver projetor, a atividade vai para a tela. Se não houver, nada muda.</p><p class="w">livro do aluno · atividade impressa · modo aula</p></div>
+    <div class="step"><p class="v">4. Refletir</p><h3>Trinta segundos depois</h3><p>Um registro rápido de como foi. Os resultados aparecem por grupo, nunca por aluno, com uma sugestão para abrir a próxima aula. É daí que a formação continua.</p><p class="w">registro · resultados por grupo</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sechead"><h2>O guia do professor</h2><span class="run">a peça central · desenho de novembro, conteúdo ainda por escrever</span></div>
+  <div class="guia">
+    <div class="cropg"><img src="img/ponte.png" alt="Página do guia do professor: Aula 1, 50 minutos, Entenda antes de ensinar, e o roteiro aos 0, 10, 20 e 45 minutos" loading="lazy"></div>
+    <div>
+      <p class="lead" style="font-size:22px">É o caderno que forma o professor enquanto ele prepara a aula. Cada aula abre com "Entenda antes de ensinar", traz o roteiro minuto a minuto, o que as diretrizes permitem, as habilidades da BNCC que a aula cobre e a rubrica para olhar o resultado dos grupos.</p>
+      <p>Impresso e em PDF, o mesmo arquivo. Não depende de internet nem de plataforma. É o que o professor leva para a sala e o que a Secretaria recebe quando compra.</p>
+      <p>O que está ao lado é a página desenhada no sprint de design, com o texto de exemplo da primeira aula. O conteúdo completo da unidade ainda vai ser escrito e revisado por um responsável pedagógico.</p>
+      <p class="note">O desenho tem três colunas: livro do aluno, guia do professor e tela, gerados do mesmo texto-fonte. O livro já começou do mesmo material; a implementação com as turmas vem depois da do professor.</p>
+    </div>
+  </div>
 </div></section>
 
 <section class="navy"><div class="wrap">
-  <div class="sechead"><h2>A plataforma <em>(fase 2)</em></h2><span class="run">protótipo navegável, feito em 27 de outubro · dados fictícios</span></div>
-  <p class="lead" style="color:#C8D2DE">A plataforma não é para o aluno. É o espaço do professor e da Secretaria. Ela existe hoje como protótipo que abre no navegador e dá para clicar, com dados inventados para demonstração. Cinco telas:</p>
-  <div class="shot"><figure class="full"><span class="tag">tela 1</span><img src="img/plat-hoje.png" alt="Tela Hoje do professor" loading="lazy"><figcaption><b>Hoje, do professor</b><p>Ao abrir, o dia já está organizado: as aulas de hoje, cada uma ligada à página do livro, ao vídeo e ao plano. Uma microformação de 5 minutos antes da aula. Um registro de 30 segundos depois. E um pacote para baixar quando a escola está sem internet.</p></figcaption></figure></div>
-  <div class="shot"><figure class="full"><span class="tag">tela 2</span><img src="img/plat-qr.png" alt="QR do livro impresso abrindo vídeo, e-book, atividade e plano" loading="lazy"><figcaption><b>O QR do livro impresso</b><p>Cada página do livro tem um código. A câmera do celular ou do tablet da turma lê e abre direto o vídeo, o e-book na mesma página, a atividade ou o plano de aula. Sem login. É a ponte entre o papel e a tela.</p></figcaption></figure></div>
-  <div class="shot"><figure class="full"><span class="tag">tela 3</span><img src="img/plat-projetor.png" alt="Modo aula no projetor" loading="lazy"><figcaption><b>Modo aula no projetor</b><p>O que a turma vê no projetor: a atividade, o código para entrar no tablet da sala, o cronômetro. As notas do professor ficam na lateral, fora da projeção. Se não tiver projetor, a mesma atividade está impressa no livro.</p></figcaption></figure></div>
-  <div class="shot"><figure class="full"><span class="tag">tela 4</span><img src="img/plat-resultados.png" alt="Resultados por grupo" loading="lazy"><figcaption><b>Resultados por grupo</b><p>Depois da atividade, o professor vê onde a turma tropeçou, item por item, e recebe uma sugestão para abrir a próxima aula. Sempre por grupo, nunca por aluno: não existe nota individual nem ranking.</p></figcaption></figure></div>
-  <div class="shot"><figure class="full"><span class="tag">tela 5</span><img src="img/plat-secretaria.png" alt="Painel da Secretaria" loading="lazy"><figcaption><b>Painel da Secretaria</b><p>O que a prefeitura vê: quantas escolas e professores estão no programa, quanto da formação foi feita, onde falta internet e como as aulas foram avaliadas. Dados agregados, escolas por código. É o relatório que justifica a compra no ano seguinte.</p></figcaption></figure></div>
-  <div class="shot"><figure class="full"><span class="tag">conceito · nova linguagem visual</span><img src="img/plat-conceito.png" alt="Conceito do espaço do professor na nova linguagem visual" loading="lazy"><figcaption><b>Para onde a plataforma vai</b><p>A mesma tela Hoje redesenhada com a linguagem do livro: tipografia de livro, sem cartões, sem enfeite. É só conceito, para mostrar que o impresso e a tela vão falar a mesma língua.</p></figcaption></figure></div>
+  <div class="sechead"><h2>O espaço do professor na tela <em>(fase 2)</em></h2><span class="run">protótipo navegável, feito em 27 de outubro · dados fictícios</span></div>
+  <p class="lead" style="color:#C8D2DE">A plataforma é o lugar onde o professor organiza o dia, prepara a aula, faz a formação e registra o que aconteceu. Existe hoje como protótipo que abre no navegador e dá para clicar, com dados inventados para demonstração. Nenhuma funcionalidade está construída de verdade. Sete telas, na ordem do trabalho do professor:</p>
+  <div class="shot"><figure class="full"><span class="tag">tela 1 · o dia</span><img src="img/plat-hoje.png" alt="Tela Hoje do professor" loading="lazy"><figcaption><b>Hoje, do professor</b><p>Ao abrir, o dia já está organizado: as aulas de hoje, cada uma ligada à página do guia, ao vídeo e ao plano. Uma microformação de 5 minutos antes da aula. Um registro de 30 segundos depois. Um pacote para baixar quando a escola está sem internet. E, na lateral, a trilha de formação do professor.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">tela 2 · preparar</span><img src="img/plat-plano.png" alt="Plano de aula com o guia do professor embutido" loading="lazy"><figcaption><b>O plano de aula, com a formação dentro</b><p>Objetivos da aula, habilidades da BNCC, o "Entenda antes de ensinar" e o roteiro em blocos de tempo, na mesma tela. O botão "Prepare-se em 5 min" abre a microformação. É a versão em tela da página do guia.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">tela 3 · aplicar</span><img src="img/plat-projetor.png" alt="Modo aula no projetor" loading="lazy"><figcaption><b>Modo aula no projetor</b><p>O que a turma vê no projetor: a atividade, o código para entrar no tablet da sala, o cronômetro. As notas do professor ficam na lateral, fora da projeção. Se não tiver projetor, a mesma atividade está impressa.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">tela 4 · refletir</span><img src="img/plat-resultados.png" alt="Resultados por grupo" loading="lazy"><figcaption><b>Resultados por grupo</b><p>Depois da atividade, o professor vê onde a turma tropeçou, item por item, e recebe uma sugestão para abrir a próxima aula. Sempre por grupo, nunca por aluno: não existe nota individual nem ranking.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">tela 5 · a ponte com o papel</span><img src="img/plat-qr.png" alt="QR do material impresso abrindo vídeo, e-book, atividade e plano" loading="lazy"><figcaption><b>O QR do material impresso</b><p>Cada página impressa tem um código. A câmera lê e abre direto o vídeo, a atividade ou o plano de aula. Sem login. É a ponte entre o papel e a tela, pensada para o professor chegar ao recurso certo em segundos.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">tela 6 · quem compra</span><img src="img/plat-secretaria.png" alt="Painel da Secretaria" loading="lazy"><figcaption><b>Painel da Secretaria</b><p>O que a prefeitura vê: quantas escolas e professores estão no programa, quanto da formação foi feita, onde falta internet e como as aulas foram avaliadas. Dados agregados, escolas por código. É o relatório que justifica a compra no ano seguinte.</p></figcaption></figure></div>
+  <div class="shot"><figure class="full"><span class="tag">conceito · nova linguagem visual</span><img src="img/plat-conceito.png" alt="Conceito do espaço do professor na nova linguagem visual" loading="lazy"><figcaption><b>Para onde a tela vai</b><p>A mesma tela Hoje redesenhada com a linguagem do guia: tipografia de livro, sem cartões, sem enfeite. É só conceito, para mostrar que o impresso e a tela vão falar a mesma língua.</p></figcaption></figure></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sechead"><h2>O site</h2><span class="run">desenhado em outubro e novembro · ainda não está no ar · será revisto</span></div>
+  <p class="lead">O site é a porta de entrada para secretarias e professores. Foi desenhado para parecer o sumário de um livro didático sério, não um aplicativo. Ele abre pela unidade, que é a mesma para professor e aluno, e no índice já lista o guia, o vídeo e a regra. A hierarquia ainda será ajustada para o professor aparecer primeiro; o desenho fica. Duas telas:</p>
+  <div class="shot"><figure><div class="crop"><img src="img/site.png" alt="Abertura do site: a pergunta Como saber se uma IA está dizendo a verdade, com o índice da unidade" loading="lazy"></div><figcaption><b>Abertura</b><p>A pergunta que abre a unidade e, logo abaixo, o índice das seis aulas, do guia, do vídeo e da regra, como num sumário de livro. Quem chega já entende o que vai receber.</p></figcaption></figure></div>
+  <div class="shot"><figure><div class="crop"><img src="img/site.png" alt="Seção do método: Desconfiar, Comparar, Concluir, sobre fundo azul-marinho" loading="lazy" style="margin-top:-117%"></div><figcaption><b>O método</b><p>Três verbos que o professor ensina a turma a aplicar em qualquer resposta de IA: desconfiar (de onde veio?), comparar (o que diz uma fonte confiável?) e concluir (certo, errado ou não dá para confirmar). Cada aula tem seis momentos, e um deles é a turma decidir, com o professor, se usa ou não IA naquela tarefa.</p></figcaption></figure></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sechead"><h2>O livro do aluno</h2><span class="run">parte do produto · já iniciado · implementação depois da do professor</span></div>
+  <p class="lead">É a experiência do aluno no PATEO: o capítulo que ele lê, o glossário na margem e o desafio em grupos, tudo mediado pelo professor em sala. Já começou: a página dupla está desenhada com o texto da primeira aula em revisão pedagógica, e há um mockup do e-book. O livro faz parte da visão aprovada; o que vem depois é a implementação com as turmas, e o que falta definir é quando (já no piloto ou na rodada seguinte) e em que formato.</p>
+  <div class="shot"><figure><div class="crop" style="aspect-ratio:1440/705"><img src="img/site.png" alt="A página 90 e 91 do livro do aluno, com o texto do capítulo e o desafio" loading="lazy" style="margin-top:-62.5%"></div><figcaption><b>A página dupla desenhada</b><p>O texto que o aluno lê, o glossário na margem, o desafio em grupos com três afirmações para investigar. É o mesmo texto-fonte do guia: o que o professor prepara de um lado, o aluno vive do outro.</p></figcaption></figure></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sechead"><h2>Decisões em aberto</h2><span class="run">dependem de aprovação do Cauêh antes de entrar no documento mestre</span></div>
+  <p class="lead">Começar pelo professor deixa cinco coisas para bater. Nenhuma delas está decidida; estão aqui para que você veja onde o projeto está de verdade.</p>
+  <div class="dec" style="margin-top:28px">
+    <div><span class="n">1</span><div><h3>Quando e como o livro do aluno entra</h3><p>O livro faz parte da visão aprovada. Falta definir se entra já no piloto ou na rodada seguinte, e em que formato: capítulo impresso por aluno, folhas de atividade, ou os dois.</p></div><span class="st">pendente</span></div>
+    <div><span class="n">2</span><div><h3>Registrar a sequência no documento mestre</h3><p>Deixar escrito que o produto tem dois públicos e que a ordem de desenvolvimento começa pelo professor. Reler os 66 requisitos nessa ordem e ajustar os critérios do piloto.</p></div><span class="st">pendente</span></div>
+    <div><span class="n">3</span><div><h3>O formato da formação docente</h3><p>Carga horária, se gera certificado, se conta como formação continuada para a rede. Nada disso foi definido; o protótipo mostra uma trilha apenas como ilustração.</p></div><span class="st">pendente</span></div>
+    <div><span class="n">4</span><div><h3>O que o piloto mede</h3><p>Primeiro, se o professor consegue preparar e dar a aula com o material, e se volta para a próxima. Depois, o que a turma produziu no desafio, por grupo. O peso de cada um fica a definir com o responsável pedagógico.</p></div><span class="st">pendente</span></div>
+    <div><span class="n">5</span><div><h3>Quais telas entram na fase 2</h3><p>O protótipo tem mais telas do que o piloto precisa. Quais ficam (dia, plano, formação, registro) e quais esperam, só depois do piloto.</p></div><span class="st">pendente</span></div>
+  </div>
 </div></section>
 
 <section><div class="wrap">
   <div class="sechead"><h2>O que é o quê</h2><span class="run">glossário rápido</span></div>
   <dl class="gloss">
-    <div><dt>Unidade</dt><dd>Um bloco de seis aulas sobre um tema. A primeira é "Como saber se uma IA está dizendo a verdade?". Um ano letivo teria quatro.</dd></div>
-    <div><dt>Guia do professor</dt><dd>O caderno que acompanha a unidade. Cada aula abre com "Entenda antes de ensinar", explica o conceito ao professor, dá o plano minuto a minuto e o que fazer se der errado. A formação do professor está dentro dele.</dd></div>
-    <div><dt>Videoaula</dt><dd>Vídeo de 5 minutos para o professor, não para o aluno. Chega por pendrive ou QR, com legenda, e funciona sem internet.</dd></div>
-    <div><dt>PRD (documento mestre)</dt><dd>O documento que define tudo o que o produto é e não é: 66 requisitos, 18 decisões, riscos, perguntas em aberto. É a fonte única de verdade do projeto.</dd></div>
+    <div><dt>Formação docente</dt><dd>O ponto de partida do PATEO. Formação prática, que acontece dentro do guia, das microvideoaulas e dos planos, enquanto o professor prepara e dá a aula. Não é um curso à parte. Carga horária e certificação ainda não foram decididas.</dd></div>
+    <div><dt>Guia do professor</dt><dd>O caderno impresso e em PDF que acompanha a unidade. Cada aula abre com "Entenda antes de ensinar", explica o conceito ao professor, dá o plano minuto a minuto e o que fazer se der errado.</dd></div>
+    <div><dt>Microvideoaulas</dt><dd>Vídeos curtos, de cerca de 5 minutos, para o professor, não para o aluno. Chegam por pendrive ou QR, com legenda, e funcionam sem internet.</dd></div>
+    <div><dt>Plano de aula</dt><dd>O roteiro de uma aula de 50 minutos em blocos de tempo, com o que dizer, o que fazer, o que imprimir e o que fazer se a internet cair.</dd></div>
+    <div><dt>Unidade</dt><dd>Um bloco de seis aulas sobre um tema, com guia e vídeos para o professor, e livro e atividades para o aluno. A primeira é "Como saber se uma IA está dizendo a verdade?", para 8º e 9º ano.</dd></div>
+    <div><dt>Livro do aluno</dt><dd>Capítulo impresso para o aluno, com texto, glossário e desafio em grupos. Página dupla desenhada, texto em revisão. Parte integral do produto, já iniciado; a implementação vem depois da do professor, e quando e em que formato entra no piloto é decisão pendente.</dd></div>
+    <div><dt>PRD (documento mestre)</dt><dd>O documento que define tudo o que o produto é e não é: 66 requisitos, 18 decisões, riscos, perguntas em aberto. Ainda vai registrar a ordem de desenvolvimento: professor primeiro.</dd></div>
     <div><dt>Dossiê</dt><dd>Levantamento de mercado e de regulação: o que as leis exigem, o que já existe no Brasil e fora, por que uma rede compraria isso.</dd></div>
-    <div><dt>Piloto</dt><dd>Aplicação real da unidade em duas a quatro escolas de uma rede municipal, com três a seis professores, sem custo, no primeiro semestre de 2027, com termo assinado e relatório no final.</dd></div>
+    <div><dt>Piloto</dt><dd>Aplicação real da unidade com três a seis professores, em duas a quatro escolas de uma rede municipal, sem custo, no primeiro semestre de 2027, com termo assinado e relatório no final.</dd></div>
     <div><dt>Parceira comercial</dt><dd>Empresa que já vende para prefeituras e conhece o caminho de compra. A conversa está aberta; nada foi assinado, e nada será assinado antes do advogado.</dd></div>
-    <div><dt>Parecer CNE/CP 15/2026</dt><dd>A norma federal de 2026 sobre IA na educação. Ela permite IA generativa nos Anos Finais só com mediação do professor e exige que o uso de IA em materiais seja informado. O PATEO foi desenhado para caber exatamente nisso.</dd></div>
-    <div><dt>BNCC Computação</dt><dd>A parte do currículo nacional que trata de pensamento computacional e cultura digital. Cada aula do PATEO aponta para habilidades dela; os códigos ainda serão confirmados pelo responsável pedagógico.</dd></div>
-    <div><dt>Fase 2</dt><dd>Tudo o que vem depois do piloto: a plataforma completa, mais unidades, outros anos. Só começa com resultado do piloto na mão.</dd></div>
+    <div><dt>Parecer CNE/CP 15/2026</dt><dd>Diretrizes do Conselho Nacional de Educação sobre IA na educação, aprovadas em setembro de 2026 e publicadas em súmula em outubro. O projeto de resolução que as acompanha prevê IA generativa nos Anos Finais só com mediação do professor e pede que o uso de IA em materiais seja informado. Homologação e texto final ainda por confirmar; o PATEO foi desenhado para caber nelas.</dd></div>
+    <div><dt>BNCC Computação</dt><dd>A parte do currículo nacional que trata de pensamento computacional e cultura digital. Cada aula aponta para habilidades dela; os códigos ainda serão confirmados pelo responsável pedagógico.</dd></div>
+    <div><dt>Fase 2</dt><dd>Tudo o que vem depois do piloto: a plataforma do professor, mais unidades, outros anos. Só começa com resultado do piloto na mão.</dd></div>
     <div><dt>Nome provisório</dt><dd>"Páteo" é a grafia antiga de pátio, o lugar da escola onde todo mundo se encontra. A busca de marca no INPI ainda não foi feita. O nome pode mudar; o método não depende dele.</dd></div>
     <div><dt>Transparência</dt><dd>Houve apoio de IA na pesquisa e nos rascunhos. Toda versão que vai para sala de aula será revisada e assinada por um responsável pedagógico humano, e isso fica impresso no material.</dd></div>
   </dl>
@@ -122,18 +201,18 @@ footer .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
 <section><div class="wrap">
   <div class="sechead"><h2>Linha do tempo</h2><span class="run">o que aconteceu e o que vem</span></div>
   <div class="tl">
-    <div><span class="mono">set–out 2026</span><p>Pesquisa de mercado e regulação, dossiê, documento mestre do produto, método pedagógico, primeiros mockups e protótipo navegável da plataforma.</p></div>
-    <div><span class="mono">nov 2026</span><p>Identidade visual e site desenhados em três sprints de design. Esta página.</p></div>
-    <div><span class="mono">próximos 30 dias</span><p>Parceria comercial, advogado e empresa, responsável pedagógico, primeira rede para o piloto.</p></div>
-    <div><span class="mono">dez–fev</span><p>Escrever e revisar a unidade completa, gravar o vídeo, imprimir o material do piloto.</p></div>
-    <div><span class="mono">1º sem. 2027</span><p>Piloto em sala. Relatório. Decisão de escala e de fase 2.</p></div>
+    <div><span class="mono">set–out 2026</span><p>Pesquisa de mercado e regulação, dossiê, documento mestre do produto, método pedagógico, primeiros mockups e protótipo navegável do espaço do professor.</p></div>
+    <div><span class="mono">nov 2026</span><p>Identidade visual e site desenhados em três sprints de design. Esta página, e a definição da sequência: professor primeiro, aluno junto.</p></div>
+    <div><span class="mono">próximos 30 dias</span><p>Documento mestre revisado, parceria comercial, advogado e empresa, responsável pedagógico, primeira rede para o piloto.</p></div>
+    <div><span class="mono">dez–fev</span><p>Escrever e revisar o guia, os planos e as atividades; gravar as microvideoaulas; o livro do aluno segue em paralelo, com implementação conforme a decisão de quando entra; imprimir o material do piloto.</p></div>
+    <div><span class="mono">1º sem. 2027</span><p>Piloto com três a seis professores e suas turmas. Relatório. Decisão de escala e de fase 2.</p></div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
   <p><b>Nome e identidade provisórios.</b> Busca no INPI não feita. A metodologia não depende do nome.</p>
-  <p><b>Estado.</b> Projeto em desenvolvimento. Nenhuma rede adotou; nenhum resultado foi medido. Telas da plataforma são protótipo com dados fictícios.</p>
-  <p><b>Esta página</b> é material de trabalho para apresentação em família, não indexada por buscadores. Novembro de 2026. <span class="mono" style="display:block;margin-top:8px">U-AI-0809-01 · v0.1.0</span></p>
+  <p><b>Estado.</b> Projeto em desenvolvimento. Nenhuma rede adotou; nenhum resultado foi medido. Telas da plataforma são protótipo com dados fictícios. Decisões marcadas como pendentes não foram tomadas.</p>
+  <p><b>Esta página</b> é material de trabalho para apresentação em família, não indexada por buscadores. Novembro de 2026. <span class="mono" style="display:block;margin-top:8px">U-AI-0809-01 · v0.1.0 · página v2 · professor primeiro, aluno junto</span></p>
 </div></footer>
 </body>
 </html>
